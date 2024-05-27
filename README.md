@@ -1,7 +1,4 @@
 # Setup
-
-Setup guide for my macos
-
 ## Manual settings
 
 1. Trackpad settings
@@ -98,13 +95,13 @@ Follow the instructions for the PowerLevel10K configuration to make your termina
 
 Open iTerm2 Preferences: **Cmd** + **,** (comma) as a shortcut.
 
-1. Font size
+1. **Font size**
 	1. Profiles > Text
 	2. I increase my font size to about 14px
-2. New window default size
+2. **New window default size**
 	1. Go to Profiles > Window
 	2. Mine is `165x45`
-3. Keybindings
+3. **Keybindings**
 	1. Go to Profiles -> Keys -> Key mappings
 	2. Jump left
 		1. Left“Keyboard Shortcut”: Option + Left Arrow.  
@@ -117,6 +114,15 @@ Open iTerm2 Preferences: **Cmd** + **,** (comma) as a shortcut.
 	4. Delete entire word while pressing Option
 		1. “Action”: “Send Hex Code” or “Send Escape Sequence”
 		2. “Send Hex Code”: **0x1b 0x08** or **0x17** (If “Send Hex Code” doesn’t work as expected, try “Send Escape Sequence”.)
+4. **ZSH Themes**
+	1. Clone themes repo
+		```bash
+		mkdir $HOME/Desktop/projects && cd $HOME/Desktop/projects && git clone https://github.com/alemartinezz/setup-macos.git
+		```
+	1. Open iTerm2 Preferences: **Cmd** + **,** (comma) as a shortcut.
+	2. Go to Profiles > Colors  
+	3. Import the downloaded color profile you want, or all.  
+	4. Select the color profile
 
 ### ZSH Plugins
 
@@ -145,39 +151,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
 source ~/.zshrc
 ```
 
-
-### ZSH Themes
-
-#### SSH Key
-
-1. Generate a new SSH key for secure authentication with GitHub.
-```bash
-mkdir -p ~/.ssh && ssh-keygen -t ed25519 -C "martinezcornes@icloud.com" -f ~/.ssh/personal_git && chmod 600 ~/.ssh/personal_git && chmod 600 ~/.ssh/personal_git.pub && cat ~/.ssh/personal_git.pub | pbcopy
-```
-2. Add the SSH key to your GitHub account under `Settings` -> `SSH and GPG Keys`.
-3. Add your key to the SSH agent and test connectivity.
-```bash
-ssh-add ~/.ssh/personal_git
-```
-```bash
-ssh -i ~/.ssh/personal_git -T git@github.com
-```
-```bash
-ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-```
-
-#### Download & Import themes
-1. Clone themes repo
-```bash
-mkdir $HOME/Desktop/projects && cd $HOME/Desktop/projects && GIT_SSH_COMMAND="ssh -i ~/.ssh/personal_git -o IdentitiesOnly=yes" git clone git@github.com:alemartinezz/iterm-themes.git 
-```
-3. Open iTerm2 Preferences: **Cmd** + **,** (comma) as a shortcut.
-4. Go to Profiles > Colors  
-5. Import the downloaded color profile you want, or all.  
-6. Select the color profile
-
-You can find other themes here: Iterm2 Color Schemes [https://iterm2colorschemes.com/](https://iterm2colorschemes.com/)**)
-
 ## Programs
 
 Misc
@@ -189,10 +162,3 @@ Rust w rustup
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
-
----
-
-Incluir generacion de clave ssh para bajar temas
-publicar esta guia publica y accesible
-Cambiar color de titulo 3 y italic
-Investigar que es zsh bien
